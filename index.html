@@ -1,0 +1,238 @@
+<html lang=en>
+<head>
+    <title>WebRTC conf Call</title>
+    <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+</head>
+
+<body>
+
+    <!-- add mainDiv if you are using debug mode true -->
+    <div  id="mainDiv" class="container-fluid">
+
+        <!-- ................................ top panel ....................... -->
+        <div class="row topPanelClass" >    
+            <div id="topIconHolder" >
+                <ul id="topIconHolder_ul">
+                    <li hidden> <span id="username" class="userName" hidden>a</span></li>
+                    <li hidden> <span id="numbersofusers" class="numbers-of-users" hidden></span></li>
+                </ul>
+            </div>
+        </div>
+        <!-- .............  alerts ................. -->
+        
+        <div class="row" id="alertBox" hidden="true"></div>
+
+        <!-- .......................... Row 2 ................................ -->
+        <div class="row thirdPanelClass"> 
+            <div class="col-xs-12 videoBox merge" id="videoHold">
+                <div class="row users-container merge" id="usersContainer" ondblclick="enterFullScreen()">
+
+                    <!-- when no remote -->
+                    <!--                     
+                    <div id="singleVideoContainer" class="row" hidden>
+                        <div class="col-sm-2 merge"> Waiting  ! </div>
+                        <div class="col-sm-8 merge"> <video name="myAloneVideo" autoplay="autoplay" muted="true" /></div>
+                        <div class="col-sm-2 merge"> You are the only one in the session ...</div>
+                    </div> -->
+
+                    <!-- when no remote -->
+                    <div id="singleVideoContainer" class="video-remote-section-webrtc">
+                        <video class="video-block" name="myAloneVideo" muted="true"></video>
+                    </div>
+
+                    <!-- when remote is connected -->
+                    <div id ="confVideoContainer" class="conatiner" style="display: inline;" hidden>
+                        <div class="col-sm-4 merge" class="leftVideoClass" id="userVideo">
+                            <video name="myConferenceVideo" autoplay="autoplay" muted="true" />
+                        </div>
+
+                        <div class="col-sm-4 merge" class="rightVideoClass" id="othersVideo">
+                        </div>
+                    </div>
+
+                </div>
+            </div> 
+        </div>
+
+        <!--  ............................ modal settings .......................... -->
+        <div class="modal fade" id="settingsModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <h4 class="modal-title">Settings</h4>
+                </div>
+
+                <div class="modal-body">
+                  <div id="settingsContainer">
+
+                    Inspectore <input class="form-control" type="text" id="inspectorlink" readonly><br/>
+                    Channel <input class="form-control" type="text" id="channelname" readonly> <br/>
+                    User Id <input class="form-control" type="text" id="userid" readonly> <br/>
+
+                    <div class="row">
+                        <h2>Outgoing</h2>
+                        <div style="display: inline-flex;">
+                            <div>Audio</div> <input class="form-control" type="text" id="inAudio" style="width:100px" readonly><br/>
+                        </div>
+                        
+                        <div style="display: inline-flex;">
+                            <div>Video</div> <input class="form-control" type="text" id="inVideo" style="width:100px" readonly><br/>
+                        </div>
+
+                        <div style="display: inline-flex;">
+                            Data <input class="form-control" type="text" id="inData" style="width:100px" readonly><br/>
+                        </div>
+
+                        <div style="display: inline-flex;">
+                            Screen <input class="form-control" type="text" id="inScreen" style="width:100px" readonly><br/>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <h2>Incoming</h2>
+                        <div style="display: inline-flex;">
+                            <div>Audio</div> <input class="form-control" type="text" id="outAudio" style="width:100px" readonly><br/>
+                        </div>
+                        
+                        <div style="display: inline-flex;">
+                            <div>Video</div> <input class="form-control" type="text" id="outVideo" style="width:100px" readonly><br/>
+                        </div>
+
+                        <div style="display: inline-flex;">
+                            Data <input class="form-control" type="text" id="outData" style="width:100px" readonly><br/>
+                        </div>
+
+                        <div style="display: inline-flex;">
+                            Screen <input class="form-control" type="text" id="outScreen" style="width:100px" readonly><br/>
+                        </div>                    
+                    </div>                    
+
+                    <div class="row">
+                         <button class="btn" id="btnGetPeers">Get Peers Info</button>
+                         <button class="btn" id="btnDebug">Debug</button>
+                    </div> 
+
+                    <div id="allpeerinfo" style="text-align: left;"></div>
+                    <div id="allwebrtcdevinfo" style="text-align: left;"></div>
+
+
+                  </div>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- <script src="node_modules/webrtcdevelopment/client/build/webrtcdevelopment.js"></script> -->
+    <script src="webrtcdevelopment.js"></script>
+</body>
+
+<script>
+var sessionid;
+var webrtcdevobj;
+
+
+var local={
+    video: "myAloneVideo",
+    videoClass:"",
+    videoContainer : "singleVideoContainer",
+    userDisplay:false,
+    userMetaDisplay:false,
+    userdetails:{
+        username:"Expert",
+        usercolor: "Blue",
+        useremail: "abc@gmail.com"
+    }
+};
+
+var remote={
+    videoarr: ["myConferenceVideo"],
+    remoteVideoCount: "unlimited",
+    videoContainer : "confVideoContainer",
+    videoClass:"",
+    userDisplay:false,
+    userMetaDisplay:false,
+    maxAllowed: "unlimited",   
+};
+
+var incoming={
+    audio:  true,
+    video:  true,
+    data:   true,
+    screen: true
+};
+
+var outgoing={
+    audio:  true,
+    video:  true,
+    data:   true,
+    screen: true
+};
+
+
+
+var widgets={
+    debug       : true,
+    chat        :{
+                   active: false
+                },
+    fileShare   :{
+                    active : false
+                },
+    screenrecord:{
+                    active: false,
+                }, 
+    screenshare : {
+                    active:false
+                },
+    videoRecord :{
+                    active: true,
+                    videoRecordContainer: true,
+                    button:{
+                        class_on:"pull-right glyphicon glyphicon-facetime-video btn btn-warning mediaButton",
+                        html_on:"",
+                        class_off:"pull-right glyphicon glyphicon-facetime-video btn btn-default mediaButton",
+                        html_off:""
+                    }
+                },
+    snapshot :{
+                    active: true,
+                    snapshotContainer: true,
+                    button:{
+                        class_on:"pull-right glyphicon glyphicon-camera btn btn-default mediaButton",
+                        html_on:""
+                    }
+                }, 
+    drawCanvas  :{
+                    active: false
+                }, 
+    reconnect   :{
+                    active: false
+                }, 
+};
+
+init(true , function (sessionid){
+    session = {
+      sessionid : sessionid,
+      socketAddr: "https://"+location.hostname+":8086/",
+      turn : {
+        active: true,
+        "iceServers": ['stun:stun.l.google.com:19302','stun:stun1.l.google.com:19302']
+      }
+    };
+
+});
+
+webrtcdevobj = new webrtcdevconstructor(local, remote, incoming, outgoing ,session ,widgets);
+startCall(webrtcdevobj)
+
+</script>
+</html>
