@@ -1,7 +1,5 @@
 node_modules
-ca-key.pem
-ca.pem
-ca.srl
-cert.pem
+csr.pem
 key.pem
+cert.pem
 package-lock.json

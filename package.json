@@ -1,7 +1,7 @@
 {
   "name": "webrtcquick",
   "version": "1.0.0",
-  "description": "quicly start a webrtc video Call session ",
+  "description": "quickly start a webrtc video Call session ",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,6 +13,6 @@
   "author": "altanai",
   "license": "ISC",
   "dependencies": {
-    "webrtcdevelopment": "^3.0.0"
+    "webrtcdevelopment": "^4.8.7"
   }
 }

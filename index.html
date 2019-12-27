@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.0/socket.io.js"></script>
+    <link rel=stylesheet href="webrtcdevelopment.css">
 </head>
 
 <body>
@@ -69,7 +70,7 @@
                 <div class="modal-body">
                   <div id="settingsContainer">
 
-                    Inspectore <input class="form-control" type="text" id="inspectorlink" readonly><br/>
+                    Inspecter <input class="form-control" type="text" id="inspectorlink" readonly><br/>
                     Channel <input class="form-control" type="text" id="channelname" readonly> <br/>
                     User Id <input class="form-control" type="text" id="userid" readonly> <br/>
 
@@ -131,14 +132,13 @@
         </div>
 
     </div>
-    <!-- <script src="node_modules/webrtcdevelopment/client/build/webrtcdevelopment.js"></script> -->
     <script src="webrtcdevelopment.js"></script>
+
 </body>
 
 <script>
 var sessionid;
-var webrtcdevobj;
-
+var webrtcdevobj=null ;
 
 var local={
     video: "myAloneVideo",
@@ -219,20 +219,67 @@ var widgets={
                 }
 };
 
-init(true , function (sessionid){
-    session = {
-      sessionid : sessionid,
-      socketAddr: "https://"+location.hostname+":8086/",
-      turn : {
-        active: true,
-        "iceServers": ['stun:stun.l.google.com:19302','stun:stun1.l.google.com:19302']
-      }
-    };
+window.onload = (event) => {
+    console.log('page is fully loaded');
 
-});
+    webrtcdevobj = new webrtcdevcon();
 
-webrtcdevobj = new webrtcdevconstructor(local, remote, incoming, outgoing ,session ,widgets);
-startCall(webrtcdevobj)
+    webrtcdevobj.makesessionid(true , function (sessionid){
+        session = {
+            sessionid : sessionid,
+            socketAddr: "https://ec2-54-215-134-83.us-west-1.compute.amazonaws.com:8084/",
+            turn : {
+                active: true,
+                "iceServers": []
+            }
+        };
+    });
 
+    webrtcdevsessionobj = webrtcdevobj.setsession(local, remote, incoming, outgoing ,session , widgets);
+
+    webrtcdevobj.startCall(webrtcdevsessionobj);
+};
+
+
+
+
+window.addEventListener('build' ,eventHandler,false)
+
+function eventHandler(e) {
+    console.log(e);
+    alert("hi");
+
+    switch(e.servicetype){
+        case "onSessionConnect" :
+            console.log("onSessionConnect");
+            break;
+        case "onFileShareStart" :
+
+            break;
+        case "onFileShareEnded":
+            break;
+        case "onScreenShareStarted" :
+            let video = document.getElementById("screenShareRow").querySelectorAll("video")[0];
+            if(!video) return;
+            video.play()
+                .then(() => {
+                    //video.addAttribute("muted" , true);
+                    video.removeAttribute("hidden");
+                })
+                .catch((error) => {
+                    console.error("Remote/Remote Video not playing " , error);
+                });
+            break;
+        case "onScreenShareSEnded":
+            break;
+        case "onDrawBoardActive":
+            break;
+        case "onDrawBoardTerminate":
+            break;
+        default :
+            break;
+
+    }
+}
 </script>
 </html>

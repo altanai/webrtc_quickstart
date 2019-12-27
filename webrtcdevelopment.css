@@ -1,0 +1,637 @@
+/* Generated on:Tue Dec 17 2019 11:21:16 GMT+0530 (India Standard Time) || version: 4.8.5 - Altanai , License : MIT  */
+.glyphicon {
+  cursor: pointer;
+}
+#contentWrap {
+  margin: 0;
+  width: 100%;
+  position: relative;
+}
+#topIconHolder {
+  padding: 0px 0px 0px 0px;
+}
+#topIconHolder ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+#topIconHolder ul li {
+  float: left;
+  display: block;
+  cursor: pointer;
+  padding: 0 5px;
+}
+#topIconHolder ul li a {
+  color: #fff;
+  position: relative;
+}
+.topPanelButton {
+  line-height: 20px!important;
+}
+.slash:after {
+  content: "\\";
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  left: 2px;
+  position: absolute;
+  top: -11px;
+  transform: rotate(-30deg);
+}
+.modal-body {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 0 auto;
+  text-align: center;
+}
+.modal-body input {
+  font-weight: 0;
+}
+.modal-footer {
+  text-align: left;
+}
+.popup-box {
+  position: absolute;
+  bottom: 0;
+  right: 0px;
+  height: 40%;
+  width: 300px;
+  margin-bottom: 68px;
+}
+.user-activity {
+  line-height: 1.28;
+  width: 75%;
+  position: relative;
+}
+.max_vid {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  line-height: 40px;
+  text-align: center;
+  vertical-align: middle;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+/*.glyphicon {
+    line-height: 38px!important
+}*/
+#fullScreen {
+  display: none;
+  position: relative;
+  background-color: orange;
+}
+#inlineVidWrap {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+.inlineVid {
+  width: 200px;
+  border: 1px solid #00f;
+  margin: 0 20px;
+  display: inline-block;
+}
+:fullscreen {
+  position: fixed!important;
+  top: 0!important;
+  right: 0!important;
+  bottom: 0!important;
+  left: 0!important;
+  margin: 0!important;
+  box-sizing: border-box !important;
+  width: 100%!important;
+  height: 100%!important;
+  object-fit: contain !important;
+}
+:-webkit-full-screen {
+  background: orange;
+  width: 100%;
+  height: 100%;
+}
+.custom_wrapper {
+  position: relative;
+  width: 380px;
+  height: 285px;
+  margin: 2px;
+}
+.anim {
+  width: 25%!important;
+  height: 25%!important;
+  z-index: 200;
+}
+.screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.bgc {
+  background-color: #4FC3F7;
+}
+#invitationemail {
+  font-size: 12px;
+}
+:-moz-placeholder {
+  color: #c9c9c9 !important;
+  font-size: 13px;
+}
+::-webkit-input-placeholder {
+  color: #ccc;
+  font-size: 13px;
+}
+.viewerIframeClass {
+  width: 100%;
+  height: 98%;
+  position: relative;
+}
+.userName {
+  color: #000;
+}
+.currentUrl {
+  width: 450px;
+}
+.number-of-users {
+  color: #FFF;
+}
+.texteditorContainerClass {
+  border: 5px solid #777;
+}
+.locationContainerClass {
+  border: 5px solid #777;
+}
+.centre {
+  margin: 0 auto;
+  width: 90%;
+}
+#container {
+  -webkit-perspective: 1000;
+  background-color: #000000;
+  height: 100%;
+  margin: 0px auto;
+  position: absolute;
+  width: 100%;
+}
+.alertDiv {
+  position: absolute;
+  width: 80%;
+  z-index: 2;
+}
+#local {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: scale(-1, 1);
+  -webkit-transform: rotateY(180deg);
+}
+#remote {
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: rotateY(180deg);
+  width: 100%;
+}
+.merge {
+  background: transparent;
+  border: none;
+}
+.closeButton {
+  float: right !important;
+  margin: 2px 2px 2px 2px;
+  font-size: 14px;
+  color: #333333;
+  line-height: 20px !important;
+}
+.secondPanelClass,
+.thirdPanelClass,
+.fourthPanelClass,
+.fifthPanelClass {
+  margin-bottom: -20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: -20px;
+}
+.filler {
+  height: 40px;
+}
+.mediaButton {
+  padding: 4px;
+  line-height: 20px!important;
+}
+.button-corner {
+  float: right;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.activeButon {
+  width: 100%;
+  border-radius: 10px;
+  margin: 0px;
+}
+.inactiveButton {
+  cursor: not-allowed;
+  width: 100%;
+  border-radius: 10px;
+  margin: 0px;
+  background-color: grey;
+}
+/* Generated on:Tue Dec 17 2019 11:21:16 GMT+0530 (India Standard Time) || version: 4.8.5 - Altanai , License : MIT  */
+/*-----------------------------------------------------------------------------------*/
+/*              Video and media Related style                                        */
+/*-----------------------------------------------------------------------------------*/
+.videoBox {
+  /*left: 10%;*/
+}
+.snapshotButton {
+  color: black;
+  float: right;
+  padding-right: 40px;
+  line-height: 1.4;
+  font-size: 35px;
+}
+.videoContainer {
+  margin: 0 20px 0 20px;
+  padding: 10px;
+  border: 0;
+  background: transparent;
+}
+video {
+  top: 0;
+  left: 0;
+  transition: width 0.5s ease;
+  margin: 0;
+  background-color: #000;
+  height: 100% ;
+  width: 100%;
+}
+#localVideo {
+  -webkit-transition-duration: 2s;
+  -webkit-transition-property: opacity;
+  opacity: 0;
+  width: 100%;
+}
+#remoteVideo {
+  -webkit-transition-duration: 2s;
+  -webkit-transition-property: opacity;
+  opacity: 0;
+  width: 100%;
+}
+.leftVideoClass,
+.rightVideoClass {
+  background: transparent;
+  border: transparent;
+  width: 48%;
+}
+.videoControlBarClass {
+  float: left;
+  margin-left: 20px;
+}
+.video-inner-wrapper {
+  position: relative;
+}
+.video-inner-wrapper div .video-inner-wrapper video {
+  position: absolute;
+  top: 0;
+}
+/*video::-webkit-media-controls {
+  display: none;
+}
+video::-webkit-media-controls-play-button {}
+
+video::-webkit-media-controls-volume-slider {}
+
+video::-webkit-media-controls-mute-button {}
+
+video::-webkit-media-controls-timeline {}
+
+video::-webkit-media-controls-current-time-display {}*/
+.video-block::-webkit-media-controls {
+  display: none;
+}
+/*-------------------------------------------------------------*/
+/* Generated on:Tue Dec 17 2019 11:21:16 GMT+0530 (India Standard Time) || version: 4.8.5 - Altanai , License : MIT  */
+/*-----------------------------------------------------------------------------------*/
+/*                    Chat Related style                                        */
+/*-----------------------------------------------------------------------------------*/
+.chatContainerClass {
+  background: #f5f5f5;
+  border: 2px solid #ccc;
+  height: 50%;
+  padding: 5px;
+  margin: 10px;
+}
+.chatInputClass {
+  float: left;
+  width: 80%;
+}
+.whoTypingClass {
+  padding-bottom: 10px;
+  color: gray;
+}
+/*.chatBox{
+    background-color: rgba(85, 209, 245, 0.39);
+    height: 30%;
+
+}
+#chatBox{
+    padding: 10px 56px 10px 10px;
+}
+*/
+/*.chatBoard{
+    width: 100%;
+    border: 0px;
+}
+*/
+.userchatmsg {
+  font-size: 16px;
+  color: #000;
+  font-weight: lighter;
+  font-style: oblique;
+  text-rendering: optimizeSpeed;
+  white-space: pre-line;
+  word-wrap: break-word;
+  color: white;
+}
+.chatMessagesClass {
+  overflow-y: scroll;
+  width: 76%;
+}
+.mainInputBox {
+  width: 100%;
+  height: 10%;
+}
+.localMessageclass {
+  /*  background-color:#9999FF;
+    color: #968787;*/
+  color: #9999FF;
+  float: left;
+}
+.remoteMessageClass {
+  /*  background-color:#666699;
+    color: #968787;*/
+  color: #666699;
+  float: right;
+  text-align: right;
+  padding-right: 80px;
+}
+.chatusername {
+  font-size: 13px;
+  color: #9D0C0C;
+  font-weight: 600;
+  font-stretch: expanded;
+  font-style: italic;
+}
+/*-----------------------------------------------------------------------------------*/
+/* Generated on:Tue Dec 17 2019 11:21:16 GMT+0530 (India Standard Time) || version: 4.8.5 - Altanai , License : MIT  */
+/*-----------------------------------------------------------------------------------*/
+/*              Cursr share    Related style                                        */
+/*-----------------------------------------------------------------------------------*/
+.cursor1Class {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 0px !important;
+  border-bottom: 20px solid #9999FF;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+.cursor2Class {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 0px !important;
+  border-bottom: 20px solid #666699;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+}
+/*-----------------------------------------------------------------------------------*/
+/* Generated on:Tue Dec 17 2019 11:21:16 GMT+0530 (India Standard Time) || version: 4.8.5 - Altanai , License : MIT  */
+/*-----------------------------------------------------------------------------------*/
+/*              Draw and paint Related style                                        */
+/*-----------------------------------------------------------------------------------*/
+.drawContainerClass {
+  border: 5px solid #777;
+}
+.texteditorContainerClass {
+  border: 5px solid #777;
+}
+.locationContainerClass {
+  border: 5px solid #777;
+}
+.drawBox {
+  height: 30%;
+}
+.drawBoard {
+  margin-top: 0px;
+}
+.colors-container label {
+  width: 100px;
+  display: inline-block;
+}
+.colors-container input {
+  width: 100px;
+  text-align: left;
+}
+.colors-container .input-div {
+  margin-bottom: 5px;
+}
+.line-width-text,
+.colors-container input {
+  width: 25px;
+  padding: 2px 5px;
+  text-align: center;
+}
+.done {
+  border: 1px solid #E5E5E5;
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 3px;
+}
+.done:hover {
+  box-shadow: inset 0 0 12px white;
+}
+.done:active {
+  box-shadow: inset 0 0 52px white;
+}
+.arc-range-container {
+  position: absolute;
+  z-index: 1000;
+  display: none;
+}
+.arc-range {
+  font-size: 18px;
+  padding: 2px 16px;
+  text-align: center;
+  width: 40px;
+}
+.arc-range-container-guide {
+  margin-top: 10px;
+  color: #C5C5C5;
+}
+/*-----------------------------------------------------------------------------------*/
+/* Generated on:Tue Dec 17 2019 11:21:16 GMT+0530 (India Standard Time) || version: 4.8.5 - Altanai , License : MIT  */
+/*-----------------------------------------------------------------------------------*/
+/*                    Fileshare Related style                                        */
+/*-----------------------------------------------------------------------------------*/
+/*
+.filesharing1Box{
+    background-color: #9999FF;
+    color: #968787;
+    overflow-y: auto;
+}
+
+#file-progress1{
+    color:#FFF;
+    height:20px;
+}
+
+.filesharing2Box{
+    background-color: #666699;
+    color: #968787;
+}
+
+#file-progress2{
+    color:#FFF;
+    height:20px
+}
+*/
+.filesharing-box {
+  height: 60%;
+  max-height: 200px;
+  overflow-x: scroll;
+}
+.fileinputClass {
+  background: transparent;
+  border: none;
+  bottom: 10px;
+  position: fixed;
+}
+/*.filesharingWidget{
+    overflow: auto;
+    height: 100%;
+}
+
+.iframeClassfileviewer{
+    width: 69%;
+    border: 0;
+    border-left: 1px solid black;
+    height: inherit;
+}*/
+.fileBoxClass {
+  /*padding: 10px 10px 10px 10px;
+    background: rgba(255, 255, 255, 0.39);
+    margin-bottom: 2px;
+    margin-top: 2px;*/
+  overflow-y: hidden;
+}
+/*.fileViewing1Box{
+    background-color: #9999FF;
+    color: #968787;
+}
+
+.fileViewing2Box{
+    background-color: #666699;
+    color: #968787;
+}*/
+/* ---------------image rotate -----------------------------*/
+.rotate0portrait {
+  transform-origin: top left;
+  /* IE 10+, Firefox, etc. */
+  -webkit-transform-origin: top left;
+  /* Chrome */
+  -ms-transform-origin: top left;
+  /* IE 9 */
+  height: 100%;
+  width: 100%;
+}
+.rotate0landscape {
+  transform-origin: top left;
+  /* IE 10+, Firefox, etc. */
+  -webkit-transform-origin: top left;
+  /* Chrome */
+  -ms-transform-origin: top left;
+  /* IE 9 */
+  height: 100%;
+  width: 100%;
+}
+.rotate90portrait {
+  transform: rotate(90deg) translateY(-100%);
+  -webkit-transform: rotate(90deg);
+  /*-webkit-transform: rotate(90deg) translateY(-100%);*/
+  -ms-transform: rotate(90deg) translateY(-100%);
+  margin-top: 50px;
+  height: -webkit-fill-available;
+}
+.rotate90landscape {
+  transform: rotate(90deg) translateY(-100%);
+  -webkit-transform: rotate(90deg);
+  /*-webkit-transform: rotate(90deg) translateY(-100%);*/
+  -ms-transform: rotate(90deg) translateY(-100%);
+  /*    margin-top: 150px;
+    margin-bottom: -100px;
+    margin-left: -150px; */
+  /*margin-top: 30%;*/
+}
+.rotate180portrait {
+  transform: rotate(180deg) translate(-100%, -100%);
+  -webkit-transform: rotate(180deg);
+  /*-webkit-transform: rotate(180deg) translate(-100%,-100%);*/
+  -ms-transform: rotate(180deg) translateX(-100%, -100%);
+  /*    height: 100%;
+    margin-top: 60px;
+    width: auto !important;*/
+  /*height: -webkit-fill-available;*/
+}
+.rotate180landscape {
+  transform: rotate(180deg) translate(-100%, -100%);
+  -webkit-transform: rotate(180deg);
+  /*-webkit-transform: rotate(180deg) translate(-100%,-100%);*/
+  -ms-transform: rotate(180deg) translateX(-100%, -100%);
+  /*margin-top: 50px;*/
+}
+.rotate270portrait {
+  transform: rotate(270deg) translateX(-100%);
+  -webkit-transform: rotate(270deg);
+  /*-webkit-transform: rotate(270deg) translateX(-100%);*/
+  -ms-transform: rotate(270deg) translateX(-100%);
+  /*    height: 100%;*/
+  /*margin-top: 50px;*/
+  height: -webkit-fill-available;
+}
+.rotate270landscape {
+  transform: rotate(270deg) translateX(-100%);
+  -webkit-transform: rotate(270deg);
+  /*-webkit-transform: rotate(270deg) translateX(-100%);*/
+  -ms-transform: rotate(270deg) translateX(-100%);
+  /*    margin-top: 150px;
+    margin-bottom: -100px;
+    margin-left: -150px; */
+}
+/*-----------------------------------------------------------------------------------*/
+/* Generated on:Tue Dec 17 2019 11:21:16 GMT+0530 (India Standard Time) || version: 4.8.5 - Altanai , License : MIT  */
+/*-----------------------------------------------------------------------------------*/
+/*              Screenshare Related style                                        */
+/*-----------------------------------------------------------------------------------*/
+.screenshareVideoClass {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  /* Safari and Chrome */
+  -moz-transform: rotateY(180deg);
+  /* Firefox */
+}
+/*-----------------------------------------------------------------------------------*/
+/* Generated on:Tue Dec 17 2019 11:21:16 GMT+0530 (India Standard Time) || version: 4.8.5 - Altanai , License : MIT  */
+ul {
+  list-style-type: none;
+}
+/* Generated on:Tue Dec 17 2019 11:21:16 GMT+0530 (India Standard Time) || version: 4.8.5 - Altanai , License : MIT  */
+.remoteVideoControlBarClass {
+  display: inline-table;
+  font: icon;
+}
+.localVideoControlBarClass {
+  display: inline-table;
+  font: icon;
+}
+.videoButtonClass {
+  padding-left: 5px;
+  /*padding-right: 5px;*/
+}
